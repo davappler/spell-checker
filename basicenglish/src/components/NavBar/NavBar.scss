@@ -1,0 +1,12 @@
+@import "../../Theme/Colors.scss";
+@import "../../Theme/Fonts.scss";
+
+.navbar-container {
+  background-color: $primary-red;
+  padding:1.5rem;
+}
+
+.navbar-container__text {
+  font: $heading-1;
+  color:$white;
+}

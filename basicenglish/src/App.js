@@ -1,13 +1,16 @@
-import { Route, Switch } from "react-router-dom";
+// import { Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
+import {SpellCheckerPage} from "./pages/SpellCheckerPage/SpellCheckerPage";
 
 function App() {
   return (
     <div className="App">
-      <Switch>
-        <Route path="/" exact>
-        </Route>
-      </Switch>
+      <BrowserRouter>
+          <Route path="/" exact>
+            <SpellCheckerPage />
+          </Route>
+      </BrowserRouter>
     </div>
   );
 }

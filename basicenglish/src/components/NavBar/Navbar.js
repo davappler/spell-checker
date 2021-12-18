@@ -4,7 +4,7 @@ import "./NavBar.scss";
 export function NavBar(){
   return(
     <div className="navbar-container">
-      <span className="navbar-container__text">SpellChecker</span>
+      <span className="navbar-container__text">SpellCheck</span>
     </div>
   )
 }

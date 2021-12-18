@@ -39,12 +39,15 @@
 
 
 span{
-  color:$primary-red;
+  // color:$primary-red;
+  text-decoration: underline wavy $primary-red;
 }
 
 .spell-check-container__correct-sentence{
+  padding:1rem;
   margin-top: 2rem;
   font: $smaller-text;
-  // border:5px solid black;
+  border:2px solid black;
+  border-radius: 1rem;
   text-align: center;
 }

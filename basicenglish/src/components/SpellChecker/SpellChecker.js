@@ -51,9 +51,8 @@ export function SpellChecker(){
       }
     })
 
-      console.log(incorrectWordsArray)
-      let abc=highlightIncorrect(incorrectWordsArray,currentSentence)
-      setCorrectSentence(abc)
+      let highLightedText=highlightIncorrect(incorrectWordsArray,currentSentence)
+      setCorrectSentence(highLightedText)
 
   }
 

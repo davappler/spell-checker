@@ -5,7 +5,7 @@ import "./SpellChecker.scss";
 export function SpellChecker(){
 
   const [currentSentence,setCurrentSentence]=useState("")
-  const [correctSentence,setCorrectSentence]=useState("")
+  const [correctSentence,setCorrectSentence]=useState()
 
 
   function handleChange(e){
@@ -30,11 +30,20 @@ export function SpellChecker(){
     return value
   }
 
+  function highlightIncorrect(incorrectWordsArray, userInput) {
+    let result = userInput;
+    incorrectWordsArray.forEach(incorrectWord=>{
+        result = result.replaceAll(incorrectWord, `<span className="incorrect-word">${incorrectWord}</span>`);
+        console.log(result);
+      })
+    return result;
+  }
+
   function checkSpellings(currentSentence){
     let wordsArray=currentSentence.split(" ")
     let incorrectWordsArray=[]
     let exist
-    wordsArray.map((word,index)=>{
+    wordsArray.map((word)=>{
       exist=checkWordExistence(word) // This will check if word exists in 850 english words or not
       if(!exist)
       {
@@ -43,23 +52,13 @@ export function SpellChecker(){
     })
 
       console.log(incorrectWordsArray)
-      incorrectWordsArray.map(incorrectWord=>{
-      let temporarySentence
-      if(correctSentence)
-        temporarySentence=correctSentence
-      else
-        temporarySentence=currentSentence
-      console.log(incorrectWord)
-      let abc =temporarySentence.replace(incorrectWord, `<span className="incorrect-word">${incorrectWord}</span>`);
-      console.log(abc)
+      let abc=highlightIncorrect(incorrectWordsArray,currentSentence)
       setCorrectSentence(abc)
-      })
 
   }
 
       function handleSubmit(e){
       e.preventDefault ();
-      setCorrectSentence(currentSentence)
       checkSpellings(currentSentence)
     }
 

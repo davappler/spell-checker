@@ -7,14 +7,20 @@ export function SpellChecker(){
   const [currentSentence,setCurrentSentence]=useState("")
   const [correctSentence,setCorrectSentence]=useState()
 
-  
+  /**
+   * 
+   * @param {*} e 
+   */
   function handleChange(e){
     setCurrentSentence(e.target.value)
   }
 
 
-
-  // This is a boolean function, it takes a word and checks if that word is in the list of 850 BASIC words
+  /**
+   * @description it takes a word and checks if that word is in the list of 850 BASIC words
+   * @param {String} word the word to check for
+   * @returns {boolean} true if word exists, false if it doesn't
+   */
   function checkWordExistence(word){
     let punctuationMarks=[".","?","!",",",":",";","-","[","]","{","}","(",")","'",'"',"...",""]
     let finalWordArray=[] // We will break the word into characters and then store in this array
@@ -33,8 +39,12 @@ export function SpellChecker(){
   }
 
 
-
-  // This function will hightlight the incorrect words(words that are not in the BASIC 850 words)
+  /**
+   * 
+   * @param {*} incorrectWordsArray this is an array that contains the word that will give errors.
+   * @param {*} userInput this is user input sentence
+   * @returns it returns a string, invalid words will be highlighted.
+   */
   function highlightIncorrect(incorrectWordsArray, userInput) {
     let result = userInput;
     incorrectWordsArray.forEach(incorrectWord=>{
@@ -45,8 +55,10 @@ export function SpellChecker(){
 
 
 
-
-  // This function takes the user input sentence and breaks our problem to check the spelling one by one.
+  /**
+   * @description breaks our problem to check the spelling one by one.
+   * @param {*} currentSentence is the user input
+   */
   function checkSpellings(currentSentence){
     let wordsArray=currentSentence.split(" ")
     let incorrectWordsArray=[]

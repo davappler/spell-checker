@@ -5,5 +5,5 @@ This is a spell checker for BASIC (British American Scientific International and
 # Setup
 - npm install
 
-# starting app
+# Starting app
 - npm start

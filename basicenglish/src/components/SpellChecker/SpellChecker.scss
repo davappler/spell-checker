@@ -1,7 +1,11 @@
 @import "../../Theme/Colors.scss";
 @import "../../Theme/Fonts.scss";
 
-
+.spell-check-container{
+  width:90%;
+  display: inline-grid;
+  grid-template-columns: auto auto ;
+}
 
 .spell-check-container__text-box{
   margin:4rem;
@@ -12,8 +16,8 @@
 }
 
 .spell-check-container__form__input{
-  height: 25rem;
-  width:30rem;
+  height: 20rem;
+  width:25rem;
   display: block;
   margin: 2rem auto;
   border-radius: 1rem;
@@ -31,4 +35,16 @@
   border:0px;
   color:$white;
   font: $normal-text;
+}
+
+
+span{
+  color:$primary-red;
+}
+
+.spell-check-container__correct-sentence{
+  margin-top: 2rem;
+  font: $smaller-text;
+  // border:5px solid black;
+  text-align: center;
 }

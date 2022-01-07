@@ -13,6 +13,7 @@ export function SpellChecker(){
    */
   function handleChange(e){
     setCurrentSentence(e.target.value)
+    checkSpellings(e.target.value)
   }
 
 
@@ -21,23 +22,30 @@ export function SpellChecker(){
    * @param {String} word the word to check for
    * @returns {boolean} true if word exists, false if it doesn't
    */
+  // function checkWordExistence(word){
+  //   let punctuationMarks=[".","?","!",",",":",";","-","[","]","{","}","(",")","'",'"',"...",""]
+  //   let finalWordArray=[] // We will break the word into characters and then store in this array
+  //   let finalWord="" // From the array above we will restore our word.
+  //   word=word.toLowerCase();
+  //   let wordArray=word.split("")
+
+  //   wordArray.map((character)=>{
+  //     if(!punctuationMarks.includes(character))
+  //       finalWordArray.push(character)  
+  //   })
+
+  //   finalWord=finalWordArray.join("")
+  //   let result =arrayOf850words.includes(finalWord)
+  //   return result
+  // }
+
+
   function checkWordExistence(word){
-    let punctuationMarks=[".","?","!",",",":",";","-","[","]","{","}","(",")","'",'"',"...",""]
-    let finalWordArray=[] // We will break the word into characters and then store in this array
-    let finalWord="" // From the array above we will restore our word.
-    word=word.toLowerCase();
-    let wordArray=word.split("")
-
-    wordArray.map((character)=>{
-      if(!punctuationMarks.includes(character))
-        finalWordArray.push(character)  
-    })
-
-    finalWord=finalWordArray.join("")
-    let result =arrayOf850words.includes(finalWord)
+    const regex = /[^ a-z]/gi;
+    word=word.replace(regex,"")
+    let result =arrayOf850words.includes(word)
     return result
   }
-
 
   /**
    * 
@@ -81,7 +89,7 @@ export function SpellChecker(){
 
   function handleSubmit(e){
     e.preventDefault ();
-    checkSpellings(currentSentence)
+    // checkSpellings(currentSentence)
   }
 
   return( 
